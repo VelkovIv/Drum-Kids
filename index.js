@@ -6,7 +6,17 @@ for (var i=0; i < numberOfDrumButtons; i++ ) {
         // var audio = new Audio("sounds/tom-1.mp3");
         // audio.play();
         var buttonInnerHTML = this.innerHTML;
-        switch (buttonInnerHTML) {
+        makeSound(buttonInnerHTML);
+    });
+    
+} 
+
+document.addEventListener("keydown", function(event) {
+    makeSound(event.key);
+})
+
+function makeSound(key) {
+        switch (key) {
             case "w":
                     var tom1 = new Audio("sounds/tom-1.mp3");
                     tom1.play();
@@ -36,11 +46,7 @@ for (var i=0; i < numberOfDrumButtons; i++ ) {
                     kickBass.play();
                 break;
 
-            default:
+            default: console.log(key);
                 break;
         }
-    });
-    
-} 
-
-
+}
